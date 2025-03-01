@@ -1,0 +1,13 @@
+catboost==1.2.5
+evaluate==0.4.2
+medmnist @ git+https://github.com/MedMNIST/MedMNIST.git@db5bff9d0faef4d273896e3cb5542a7000c0239f
+numpy==1.24.2
+pytorch-lightning==2.2.5
+scikit-learn==1.2.1
+scipy==1.10.0
+torch==1.13.0
+torchvision==0.14.0
+tqdm==4.66.4
+transformers==4.41.2
+tensorflow==2.13.1
+ucimlrepo==0.0.7

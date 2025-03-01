@@ -1,0 +1,24 @@
+*.pyc
+venv/
+*.egg-info/
+.vscode/
+.idea
+.DS_Store
+*.ipynb
+
+__pycache__/
+benchmark/__pycache__/
+basic/__pycache__/
+basic/privacy_meter/__pycache__/
+basic/extra_baselines/__pycache__/
+
+data
+huggingface/models
+benchmark/meta_log
+benchmark/meta_log_copy
+# benchmark/report_log
+benchmark/out
+benchmark/scripts
+benchmark/table
+benchmark/*.ipynb
+benchmark/catboost_info

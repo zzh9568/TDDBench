@@ -1,0 +1,33 @@
+random_seed: 2024 # Integer number of specifying random seed
+  
+audit: # Configurations for auditing
+  report_log: /data2/home/models/report_log # String that indicates the folder where we save the and auditing report.
+  device: cuda:1 # String for indicating on which device we conduct the membership inference attack.
+  audit_batch_size: 128 # Integer number for indicating the batch size for computing auditing signals.
+  val_ratio: 0.1 # Validation set ratio auditor used (not target model).
+  nn_topk: 3 # Top-K confidence score in 'nn-top3' algorthm.
+  query_num: 10 # Number of additional queries for each sample in ['query-noise', 'query-augmented'] algorthms.
+  boundary_eva_num: 100000000 # Number of evaluation samples in boundary-based auditing methods.
+
+train: # Configuration for training target/reference models
+  log_dir: /data2/home/models # String for indicating where to save model checkpoint and data split info.
+  type: pytorch # Training framework (we only support pytorch now).
+  device: cuda:1 # String for indicating the device we want to use for training models.
+  num_target_model: 5 # Number of used target model/repeated expriments.
+  num_in_models:  8 # Integer number that indicates how many reference models trained on idx.
+  num_out_models: 8 # Integer number that indicates how many reference models not trained on idx.
+  optimizer: adamw_torch # String which indicates the optimizer.
+  learning_rate: 0.00002 # Float number for indicating learning rate for training the target model.
+  weight_decay: 0.01 # Float number for indicating weight decay for training the target model.
+  batch_size: 32 # Integer number for indicating batch size for training the target model.
+  test_batch_size: 32 # Integer number f or indicating batch size for evaluating the target model.
+  epochs: 10 # Integer number for indicating the epochs for training target model.
+  early_stop_patience: 5 # early_stop = True if early_stop_patience > 0.
+  per_device_train_batch_size: 4 # per_device_train_batch_size for huggingface model
+  per_device_test_batch_size: 4 # per_device_test_batch_size for huggingface model
+  metric_name: accuracy # evaluation metric for training the target model
+
+data: # Configuration for data split.
+  data_dir: ../data # String about where to save/read the whole dataset.
+  target_ratio: 0.5 # The ratio of target dataset to the total data. The left data is shadow dataset.
+  train_ratio: 0.5  # The ratio of keeping the point for the training dataset.
