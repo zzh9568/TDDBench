@@ -2,6 +2,40 @@
 
 This code is the official implementation of TDDBench.
 
+## Note ⭐⭐⭐
+
+We have uploaded the datasets and target models used by TDDBench on [Huggingface](https://huggingface.co/TDDBench) to facilitate a quick evaluation of the Training Data Detection algorithm. This includes 12 datasets and 60 target models, with plans to upload more data and target models in the future.
+
+To load an evaluation dataset, you can use the following code:
+```python
+
+# Load dataset
+from datasets import load_dataset
+dataset_name = "student"
+dataset_path = f"TDDBench/{dataset_name}"
+dataset = load_dataset(dataset_path)["train"]
+```
+
+To load a target model, you can use the following code:
+```python
+
+from transformers import AutoConfig, AutoModel
+from hfmodel import MLPConfig, MLPHFModel, WRNConfig, WRNHFModel
+
+# Register the MLPConfig and MLPHFModel to automatically load our model architecture.
+AutoConfig.register("mlp", MLPConfig)
+AutoModel.register(MLPConfig, MLPHFModel)
+
+# Load target model
+dataset_name = "student" # Training dataset name
+model_name = "mlp" # Target model architecture
+model_idx = 0 # To reduce statistical error, we train five different target models for each model architecture and training dataset.
+model_path = f"TDDBench/{model_name}-{dataset_name}-{model_idx}"
+model = AutoModel.from_pretrained(model_path)
+```
+
+The [demo.ipynb](demo.ipynb) file provides a simple example of how to download the target model and dataset from [Huggingface](https://huggingface.co/TDDBench), as well as how to record the output loss of the model for both the training and non-training data.
+
 ## Dependencies
 
 ```python
