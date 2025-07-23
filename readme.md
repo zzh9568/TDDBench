@@ -8,7 +8,6 @@ We have uploaded the datasets and target models used by TDDBench on [Huggingface
 
 To load an evaluation dataset, you can use the following code:
 ```python
-
 # Load dataset
 from datasets import load_dataset
 dataset_name = "student"
@@ -18,7 +17,6 @@ dataset = load_dataset(dataset_path)["train"]
 
 To load a target model, you can use the following code:
 ```python
-
 from transformers import AutoConfig, AutoModel
 from hfmodel import MLPConfig, MLPHFModel, WRNConfig, WRNHFModel
 
