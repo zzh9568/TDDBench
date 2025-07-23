@@ -32,6 +32,11 @@ model_name = "mlp" # Target model architecture
 model_idx = 0 # To reduce statistical error, we train five different target models for each model architecture and training dataset.
 model_path = f"TDDBench/{model_name}-{dataset_name}-{model_idx}"
 model = AutoModel.from_pretrained(model_path)
+
+# Load training data detection label, 1 means model's training data while 0 means model's non-training data
+config = AutoConfig.from_pretrained(model_path)
+tdd_label = np.array(config.tdd_label)
+
 ```
 
 The [demo.ipynb](demo.ipynb) file provides a simple example of how to download the target model and dataset from [Huggingface](https://huggingface.co/TDDBench), as well as how to record the output loss of the model for both the training and non-training data.
