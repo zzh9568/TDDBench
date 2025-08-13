@@ -141,10 +141,12 @@ We use functions from the Privacy Meter(MLPrivacy Meter: Aiding Regulatory Compl
 ### References
 
 ```python
-@article{zhu2024tddbench,
-  title={TDDBench: A Benchmark for Training data detection},
-  author={Zhu, Zhihao and Yang, Yi and Lian, Defu},
-  journal={arXiv preprint arXiv:2411.03363},
-  year={2024}
+@inproceedings{
+zhu2025tddbench,
+title={{TDDB}ench: A Benchmark for Training data detection},
+author={Zhihao Zhu and Yi Yang and Defu Lian},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025},
+url={https://openreview.net/forum?id=hpeyWG1PP6}
 }
 ```
